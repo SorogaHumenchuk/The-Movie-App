@@ -1,0 +1,54 @@
+import axios from 'axios';
+import * as actions from '../moviesActions';
+
+export const fetchSuccessMovies = (sort, genre) => dispatch => {
+  dispatch(actions.fetchPopularRequest());
+  axios
+    .get(
+      `https://api.themoviedb.org/3/discover/movie?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&sort_by=${sort}&include_adult=false&page=1${genre}`,
+    )
+    .then(({ data }) => dispatch(actions.fetchPopularSeccess(data)))
+    .catch(error => dispatch(actions.fetchPopularError(error)));
+};
+
+export const fetchSuccessMovieById = id => dispatch => {
+  dispatch(actions.fetchMovieByIdRequest());
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}?api_key=5874acfd11651a28c55771624f7021f4&language=en-US`,
+    )
+    .then(({ data }) => dispatch(actions.fetchMovieByIdSeccess(data)))
+    .catch(error => dispatch(actions.fetchMovieByIdError(error)));
+};
+
+export const fetchSuccessGenres = () => dispatch => {
+  dispatch(actions.fetchGenresRequest());
+  axios
+    .get(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=5874acfd11651a28c55771624f7021f4&language=en-US`,
+    )
+    .then(({ data }) => dispatch(actions.fetchGenresSeccess(data)))
+    .catch(error => dispatch(actions.fetchGenresError(error)));
+};
+
+export const fetchSuccessSearchMovie = search => dispatch => {
+  dispatch(actions.fetchSearchMovieRequest());
+  axios
+    .get(
+      `https://api.themoviedb.org/3/search/movie?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&query=${search}&page=1&include_adult=false`,
+    )
+    .then(({ data }) => dispatch(actions.fetchSearchMovieSeccess(data)))
+    .catch(error => dispatch(actions.fetchSearchMovieError(error)));
+};
+
+export const fetchRecommendationsById = id => dispatch => {
+  dispatch(actions.fetchRecommendationsMovieRequest());
+  axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&page=1`,
+    )
+    .then(({ data }) =>
+      dispatch(actions.fetchRecommendationsMovieSeccess(data)),
+    )
+    .catch(error => dispatch(actions.fetchRecommendationsMovieError(error)));
+};
