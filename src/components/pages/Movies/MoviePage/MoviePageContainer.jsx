@@ -7,9 +7,11 @@ import {
 import {
   getMovieByID,
   getRecommendations,
+  getTrailersById,
 } from '../../../../modules/selectors';
 
 import MoviePageView from './MoviePageView';
+import styles from './MoviePage.module.css';
 
 class MoviePage extends Component {
   state = {};
@@ -27,12 +29,13 @@ class MoviePage extends Component {
   }
 
   render() {
-    const { movieById, recommendations } = this.props;
+    const { movieById, recommendations, trailers } = this.props;
     return (
-      <div>
+      <div className={styles.container}>
         <MoviePageView
           movieById={movieById}
           recommendations={recommendations}
+          trailers={trailers}
         />
       </div>
     );
@@ -42,6 +45,7 @@ class MoviePage extends Component {
 const mapStateToProps = state => ({
   movieById: getMovieByID(state),
   recommendations: getRecommendations(state),
+  trailers: getTrailersById(state),
 });
 const mapDispatchToProps = { fetchSuccessMovieById, fetchRecommendationsById };
 

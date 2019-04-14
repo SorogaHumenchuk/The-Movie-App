@@ -1,0 +1,12 @@
+.video {
+  width: 100%;
+}
+.carusel {
+  width: 300px;
+  height: auto;
+  background-color: #333;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}

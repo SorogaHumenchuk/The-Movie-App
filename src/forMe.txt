@@ -24,3 +24,10 @@ https://api.themoviedb.org/3/discover/movie?api_key=5874acfd11651a28c55771624f70
 
 search:
 https://api.themoviedb.org/3/search/movie?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&query=Harry%20Potter&page=1&include_adult=false
+
+
+
+///////////////////////////////////////////////////////////////
+
+trailer link: 
+https://www.youtube.com/watch?v=GX33bIOA5aA

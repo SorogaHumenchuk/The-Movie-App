@@ -9,6 +9,8 @@ import {
 } from '../../../modules/selectors';
 
 import MoviesView from './MoviesView';
+import Pagination from '../Pagination/Pagination';
+import styles from './Movies.module.css';
 
 class MainContainer extends Component {
   componentDidMount() {
@@ -24,7 +26,6 @@ class MainContainer extends Component {
     if (this.props.match.params.sort !== prevProps.match.params.sort) {
       this.props.fetchSuccessMovies(this.props.match.params.sort);
     }
-    console.log(this.props.match.params);
   }
 
   moviesList = () => {
@@ -40,8 +41,9 @@ class MainContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <MoviesView movies={this.moviesList()} />
+        <Pagination />
       </div>
     );
   }

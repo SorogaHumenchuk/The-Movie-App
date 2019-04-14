@@ -1,11 +1,15 @@
 import axios from 'axios';
 import * as actions from '../moviesActions';
 
-export const fetchSuccessMovies = (sort, genre) => dispatch => {
+export const fetchSuccessMovies = (
+  sort = 'popularity.desc',
+  pageNum = 1,
+  genre,
+) => dispatch => {
   dispatch(actions.fetchPopularRequest());
   axios
     .get(
-      `https://api.themoviedb.org/3/discover/movie?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&sort_by=${sort}&include_adult=false&page=1${genre}`,
+      `https://api.themoviedb.org/3/discover/movie?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&sort_by=${sort}&include_adult=false&page=${pageNum}${genre}`,
     )
     .then(({ data }) => dispatch(actions.fetchPopularSeccess(data)))
     .catch(error => dispatch(actions.fetchPopularError(error)));
@@ -15,7 +19,7 @@ export const fetchSuccessMovieById = id => dispatch => {
   dispatch(actions.fetchMovieByIdRequest());
   axios
     .get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=5874acfd11651a28c55771624f7021f4&language=en-US`,
+      `https://api.themoviedb.org/3/movie/${id}?api_key=5874acfd11651a28c55771624f7021f4&append_to_response=videos&language=en-US`,
     )
     .then(({ data }) => dispatch(actions.fetchMovieByIdSeccess(data)))
     .catch(error => dispatch(actions.fetchMovieByIdError(error)));

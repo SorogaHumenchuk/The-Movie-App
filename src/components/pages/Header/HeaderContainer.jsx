@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Toolbar from './Toolbar/Toolbar';
+
 import {
   getGenres,
   getSearchMovie,
@@ -11,8 +13,7 @@ import {
   fetchSuccessSearchMovie,
   fetchSuccessMovies,
 } from '../../../modules/operations';
-
-import HeaderView from './HeaderView';
+import styles from './Header.module.css';
 
 class Header extends Component {
   state = {
@@ -38,17 +39,18 @@ class Header extends Component {
     const { search } = this.state;
     const { genres } = this.props;
     return (
-      <header>
-        <form onSubmit={this.handleSubmit}>
+      <>
+        <Toolbar search={search} genres={genres} />
+        <form onSubmit={this.handleSubmit} className={styles.form__search}>
           <input
+            className={styles.search__input}
             onChange={this.handleChange}
             type="text"
             placeholder="Search"
             value={search}
           />
         </form>
-        <HeaderView genres={genres} />
-      </header>
+      </>
     );
   }
 }

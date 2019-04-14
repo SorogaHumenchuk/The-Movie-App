@@ -1,8 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import YouTube from 'react-youtube';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import styles from './MoviePage.module.css';
 
-const MoviePageView = ({ movieById, recommendations }) => {
+const MoviePageView = ({ movieById, recommendations, trailers }) => {
+  const arr =
+    trailers &&
+    trailers.results.map(el => (
+      <YouTube className={styles.video} videoId={el.key} />
+    ));
+  const responsive = {
+    0: { items: 0 },
+    2048: { items: 1 },
+  };
   return (
     <>
       <NavLink to="/" className={styles.btnComeBack} title="Go back">
@@ -20,6 +32,21 @@ const MoviePageView = ({ movieById, recommendations }) => {
           <p>{movieById.overview}</p>
         </div>
       )}
+      <ul>
+        <AliceCarousel
+          className={styles.carusel}
+          mouseDragEnabled
+          items={arr}
+          responsive={responsive}
+          autoPlayInterval={2000}
+          autoPlayDirection="rtl"
+          // autoPlay={true}
+          // fadeOutAnimation={true}
+          // mouseDragEnabled={true}
+          // playButtonEnabled={true}
+          // disableAutoPlayOnAction={true}
+        />
+      </ul>
       <ul>
         {recommendations &&
           recommendations.map(el => (
