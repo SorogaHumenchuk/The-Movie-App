@@ -24,15 +24,6 @@ class HeaderContainer extends Component {
     this.props.fetchSuccessSearchMovie(this.state.search);
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (
-  //     prevProps.fetchSuccessMovies(`&with_genres=${id}`) !==
-  //     this.props.fetchSuccessMovies(`&with_genres=${id}`)
-  //   ) {
-  //     this.props.fetchSuccessMovies(`&with_genres=${id}`);
-  //   }
-  // }
-
   handleMenuClick = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
   };

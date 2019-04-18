@@ -34,7 +34,10 @@ class MainContainer extends Component {
       <div className={styles.container}>
         <HeaderContainer />
         <MoviesView movies={this.props.movies} />
-        <Pagination />
+        <Pagination
+          id={this.props.match.params.id}
+          sort={this.props.match.params.sort}
+        />
       </div>
     );
   }

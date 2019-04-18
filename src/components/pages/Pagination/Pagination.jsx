@@ -8,9 +8,8 @@ import styles from './Pagination.module.css';
 class Pagination extends Component {
   state = {};
 
-  componentDidMount() {}
-
   render() {
+    const { id, sort } = this.props;
     return (
       <div>
         <ReactPaginate
@@ -21,7 +20,9 @@ class Pagination extends Component {
           pageCount={99}
           marginPagesDisplayed={1}
           pageRangeDisplayed={3}
-          onPageChange={e => this.props.fetchSuccessMovies(e.selected)}
+          onPageChange={e =>
+            this.props.fetchSuccessMovies(id && id, e.selected)
+          }
           containerClassName={styles.container}
           subContainerClassName={styles.pages}
           activeClassName={styles.active}
