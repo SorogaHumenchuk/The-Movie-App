@@ -6,8 +6,8 @@ import styles from './Movies.module.css';
 import myPhoto from './img/my.jpg';
 
 const color = el => {
-  if (el < 5) 'orangered';
-  if (el < 8) '#55dd44';
+  if (el < 5) return 'orangered';
+  if (el < 8) return '#55dd44';
   return 'blue';
 };
 
