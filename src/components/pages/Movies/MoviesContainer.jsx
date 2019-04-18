@@ -6,8 +6,10 @@ import {
   getMovies,
   getSearchMovie,
   getGenres,
+  resetArr,
 } from '../../../modules/selectors';
 
+import HeaderContainer from '../Header/HeaderContainer/HeaderContainer';
 import MoviesView from './MoviesView';
 import Pagination from '../Pagination/Pagination';
 import styles from './Movies.module.css';
@@ -28,21 +30,11 @@ class MainContainer extends Component {
     }
   }
 
-  moviesList = () => {
-    const { movies, searchMovie } = this.props;
-    let arr = [];
-    if (searchMovie) {
-      arr = searchMovie;
-    } else {
-      arr = movies;
-    }
-    return arr;
-  };
-
   render() {
     return (
       <div className={styles.container}>
-        <MoviesView movies={this.moviesList()} />
+        <HeaderContainer />
+        <MoviesView movies={this.props.movies} />
         <Pagination />
       </div>
     );
@@ -50,8 +42,7 @@ class MainContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: getMovies(state),
-  searchMovie: getSearchMovie(state),
+  movies: getSearchMovie(state) ? getSearchMovie(state) : getMovies(state),
   genres: getGenres(state),
 });
 const mapDispatchToProps = { fetchSuccessMovies };

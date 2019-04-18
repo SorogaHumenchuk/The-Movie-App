@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #444;
   width: 300px;
   height: 50px;
+  margin: auto;
+  padding: 10px;
 }
 
 ul {
@@ -19,12 +20,13 @@ li {
   cursor: pointer;
 }
 .active {
-  background-color: rgb(4, 174, 253);
-  padding: 2px;
-  border-radius: 5px;
+  width: 8px;
+  border-radius: 3px;
+  color: orangered;
+  font-weight: 800;
 }
 .pages {
-  background-color: rgb(129, 228, 241);
+  font-weight: 800;
   padding: 2px;
   border-radius: 5px;
 }

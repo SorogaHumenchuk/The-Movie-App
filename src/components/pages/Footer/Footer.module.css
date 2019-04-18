@@ -1,0 +1,36 @@
+.footer {
+  height: 60px;
+  background: black;
+  opacity: 0.95;
+  color: #efefef;
+  padding: 12px;
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer p {
+  font-size: 14px;
+  color: #efefef;
+  margin: 0;
+}
+.footer a {
+  font-size: 14px;
+  color: orangered;
+  text-decoration: none;
+  cursor: pointer;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  .footer {
+    margin-top: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .footer {
+    margin-top: 40px;
+  }
+}

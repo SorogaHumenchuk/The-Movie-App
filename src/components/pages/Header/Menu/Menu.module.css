@@ -1,0 +1,27 @@
+.Maincontainer {
+}
+
+.menu__list {
+  text-align: center;
+  padding-top: 9vh;
+}
+.form__search {
+  margin-bottom: 20px;
+}
+.search__input {
+  width: 180px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #efefef;
+  color: #232323;
+}
+@media (min-width: 768px) {
+  .form__search {
+    margin-bottom: 40px;
+  }
+  .search__input {
+    width: 280px;
+  }
+}
+@media (min-width: 1024px) {
+}

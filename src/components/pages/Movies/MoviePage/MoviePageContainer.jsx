@@ -8,6 +8,7 @@ import {
   getMovieByID,
   getRecommendations,
   getTrailersById,
+  getCastByMovieId,
 } from '../../../../modules/selectors';
 
 import MoviePageView from './MoviePageView';
@@ -29,13 +30,14 @@ class MoviePage extends Component {
   }
 
   render() {
-    const { movieById, recommendations, trailers } = this.props;
+    const { movieById, recommendations, trailers, actors } = this.props;
     return (
-      <div className={styles.container}>
+      <div className={styles.main__container}>
         <MoviePageView
           movieById={movieById}
           recommendations={recommendations}
           trailers={trailers}
+          actors={actors}
         />
       </div>
     );
@@ -46,8 +48,12 @@ const mapStateToProps = state => ({
   movieById: getMovieByID(state),
   recommendations: getRecommendations(state),
   trailers: getTrailersById(state),
+  actors: getCastByMovieId(state),
 });
-const mapDispatchToProps = { fetchSuccessMovieById, fetchRecommendationsById };
+const mapDispatchToProps = {
+  fetchSuccessMovieById,
+  fetchRecommendationsById,
+};
 
 export default connect(
   mapStateToProps,

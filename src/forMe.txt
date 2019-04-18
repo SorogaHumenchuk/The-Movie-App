@@ -31,3 +31,9 @@ https://api.themoviedb.org/3/search/movie?api_key=5874acfd11651a28c55771624f7021
 
 trailer link: 
 https://www.youtube.com/watch?v=GX33bIOA5aA
+
+
+
+get actors by movie id 
+
+http://api.themoviedb.org/3/movie/287947/casts?api_key=5874acfd11651a28c55771624f7021f4

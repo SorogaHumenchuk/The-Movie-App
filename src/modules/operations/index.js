@@ -3,8 +3,8 @@ import * as actions from '../moviesActions';
 
 export const fetchSuccessMovies = (
   sort = 'popularity.desc',
-  pageNum = 1,
   genre,
+  pageNum = 1,
 ) => dispatch => {
   dispatch(actions.fetchPopularRequest());
   axios
@@ -19,7 +19,7 @@ export const fetchSuccessMovieById = id => dispatch => {
   dispatch(actions.fetchMovieByIdRequest());
   axios
     .get(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=5874acfd11651a28c55771624f7021f4&append_to_response=videos&language=en-US`,
+      `https://api.themoviedb.org/3/movie/${id}?api_key=5874acfd11651a28c55771624f7021f4&append_to_response=credits,videos&language=en-US`,
     )
     .then(({ data }) => dispatch(actions.fetchMovieByIdSeccess(data)))
     .catch(error => dispatch(actions.fetchMovieByIdError(error)));
