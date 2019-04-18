@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
   getGenres,
-  getSearchMovie,
+  // getSearchMovie,
   getMovies,
 } from '../../../../modules/selectors';
 import {
@@ -64,7 +64,7 @@ class HeaderContainer extends Component {
 
 const mapStateToProps = state => ({
   genres: getGenres(state),
-  searchMovie: getSearchMovie(state),
+  // searchMovie: getSearchMovie(state),
   movies: getMovies(state),
 });
 const mapDispatchToProps = {

@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchSuccessMovies } from '../../../modules/operations';
-import {
-  getMovies,
-  getSearchMovie,
-  getGenres,
-} from '../../../modules/selectors';
+import { getMovies, getGenres } from '../../../modules/selectors';
 
 import HeaderContainer from '../Header/HeaderContainer/HeaderContainer';
 import MoviesView from './MoviesView';
@@ -44,7 +40,7 @@ class MainContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  movies: getSearchMovie(state) ? getSearchMovie(state) : getMovies(state),
+  movies: getMovies(state),
   genres: getGenres(state),
 });
 const mapDispatchToProps = { fetchSuccessMovies };
