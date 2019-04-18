@@ -5,6 +5,12 @@ import Loader from 'react-loader-spinner';
 import styles from './Movies.module.css';
 import myPhoto from './img/my.jpg';
 
+const color = el => {
+  if (el < 5) 'orangered';
+  if (el < 8) '#55dd44';
+  return 'blue';
+};
+
 const MoviesView = ({ movies }) => {
   return (
     <ul className={styles.list}>
@@ -30,23 +36,13 @@ const MoviesView = ({ movies }) => {
                         fill: 'transparent',
                       },
                       text: {
-                        fill:
-                          el.vote_average < 5
-                            ? 'orangered'
-                            : el.vote_average < 8
-                            ? '#55dd44'
-                            : 'blue',
+                        fill: color(el.vote_average),
                         fontSize: '25px',
                         transform: 'translate(-18px, 6px)',
                         fontWeight: '700',
                       },
                       path: {
-                        stroke:
-                          el.vote_average < 5
-                            ? 'orangered'
-                            : el.vote_average < 8
-                            ? '#55dd44'
-                            : 'blue',
+                        stroke: color(el.vote_average),
                       },
                       trail: { stroke: 'transparent' },
                     }}
