@@ -5,22 +5,22 @@ import Menu from './Menu/Menu';
 import s from './Header.module.css';
 import logo from './Logo/logo.svg';
 
+const sortArr = [
+  { name: 'Popularity', sortUrl: 'popularity.desc' },
+  { name: 'Top rated', sortUrl: 'vote_count.desc' },
+  { name: 'Latest', sortUrl: 'release_date.desc' },
+  { name: 'Now playing', sortUrl: 'revenue.desc' },
+];
+
 const Header = ({
   genres,
   search,
   handleSubmit,
   handleChange,
   handleMenuClick,
-  handleLinkClick,
   menuOpen,
   getId,
 }) => {
-  const sortArr = [
-    { name: 'Popularity', sortUrl: 'popularity.desc' },
-    { name: 'Top rated', sortUrl: 'vote_count.desc' },
-    { name: 'Latest', sortUrl: 'release_date.desc' },
-    { name: 'Now playing', sortUrl: 'revenue.desc' },
-  ];
   const menuItemsSort = sortArr.map(el => (
     <NavLink
       key={el.id}

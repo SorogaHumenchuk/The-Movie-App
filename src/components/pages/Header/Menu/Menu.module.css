@@ -24,4 +24,8 @@
   }
 }
 @media (min-width: 1024px) {
+  .search__input {
+    width: 320px;
+    padding: 8px 10px;
+  }
 }

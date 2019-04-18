@@ -16,22 +16,35 @@ const MoviesView = ({ movies }) => {
                   <h2 className={styles.title}> {el.title}</h2>
                   <p>{el.release_date}</p>
                 </div>
-                <div style={{ width: '60px' }}>
+                <div className={styles.CircularProgressbar__container}>
                   <CircularProgressbar
                     percentage={el.vote_average * 10}
+                    variant="determinate"
                     text={`${el.vote_average}`}
                     background
                     backgroundPadding={5}
                     styles={{
                       background: {
-                        fill: '#343434',
+                        fill: 'transparent',
                       },
                       text: {
-                        fill: '#efefef',
-                        fontSize: '20px',
+                        fill:
+                          el.vote_average < 5
+                            ? 'orangered'
+                            : el.vote_average < 8
+                            ? '#55dd44'
+                            : 'blue',
+                        fontSize: '25px',
+                        transform: 'translate(-18px, 6px)',
+                        fontWeight: '700',
                       },
                       path: {
-                        stroke: '#efefef',
+                        stroke:
+                          el.vote_average < 5
+                            ? 'orangered'
+                            : el.vote_average < 8
+                            ? '#55dd44'
+                            : 'blue',
                       },
                       trail: { stroke: 'transparent' },
                     }}
