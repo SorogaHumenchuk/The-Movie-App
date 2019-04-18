@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import CircularProgressbar from 'react-circular-progressbar';
 import Loader from 'react-loader-spinner';
 import styles from './Movies.module.css';
+import myPhoto from './img/my.jpg';
 
 const MoviesView = ({ movies }) => {
   return (
@@ -51,10 +52,15 @@ const MoviesView = ({ movies }) => {
                   />
                 </div>
               </div>
-              <img
-                src={`https://image.tmdb.org/t/p/w300${el.poster_path}`}
-                alt=""
-              />
+              {el.poster_path ? (
+                <img
+                  src={`https://image.tmdb.org/t/p/w300${el.poster_path}`}
+                  alt=""
+                />
+              ) : (
+                <img className={styles.myPhoto} src={myPhoto} alt="" />
+              )}
+
               {/* <p className={styles.overview}>{el.overview}</p> */}
             </NavLink>
           </li>

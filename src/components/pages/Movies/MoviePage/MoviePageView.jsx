@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import myPhoto from '../img/my.jpg';
 import styles from './MoviePage.module.css';
 
 const MoviePageView = ({ movieById, recommendations, trailers, actors }) => {
@@ -56,10 +57,14 @@ const MoviePageView = ({ movieById, recommendations, trailers, actors }) => {
               <li key={el.credit_id}>
                 <h4>{el.name}</h4>
                 <h5>{el.character}</h5>
-                <img
-                  src={`https://image.tmdb.org/t/p/w200${el.profile_path}`}
-                  alt=""
-                />
+                {el.profile_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${el.profile_path}`}
+                    alt=""
+                  />
+                ) : (
+                  <img src={myPhoto} alt="" />
+                )}
               </li>
             ))}
         </ul>
