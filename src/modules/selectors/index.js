@@ -6,4 +6,3 @@ export const getSearchMovie = state => state.searchMovie.results;
 export const getRecommendations = state => state.recommendations.results;
 export const getTrailersById = state => state.movieById.videos;
 export const getCastByMovieId = state => state.movieById.credits;
-export const resetArr = () => [];

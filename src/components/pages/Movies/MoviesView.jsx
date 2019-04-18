@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CircularProgressbar from 'react-circular-progressbar';
+import Loader from 'react-loader-spinner';
 import styles from './Movies.module.css';
 
 const MoviesView = ({ movies }) => {
@@ -47,9 +48,7 @@ const MoviesView = ({ movies }) => {
         ))}
       {movies && movies.length ? null : (
         <div className={styles.notFounded__container}>
-          <h1 className={styles.notFounded}>Movies not found!!!</h1>
-          <h2> Try another query.</h2>
-          <p>404</p>
+          <Loader type="Oval" color="#ff4400" height="150" width="150" />
         </div>
       )}
     </ul>

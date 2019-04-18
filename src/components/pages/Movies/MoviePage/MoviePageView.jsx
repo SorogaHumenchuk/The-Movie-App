@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import YouTube from 'react-youtube';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import Loader from 'react-loader-spinner';
 import styles from './MoviePage.module.css';
 
 const MoviePageView = ({ movieById, recommendations, trailers, actors }) => {

@@ -6,7 +6,6 @@ import {
   getMovies,
   getSearchMovie,
   getGenres,
-  resetArr,
 } from '../../../modules/selectors';
 
 import HeaderContainer from '../Header/HeaderContainer/HeaderContainer';
