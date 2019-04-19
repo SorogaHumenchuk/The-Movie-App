@@ -14,7 +14,6 @@ const color = el => {
 const MoviesView = ({ movies }) => {
   return (
     <ul className={styles.list}>
-      {console.log(movies)}
       {movies &&
         movies.map(el => (
           <li className={styles.item} key={el.id}>

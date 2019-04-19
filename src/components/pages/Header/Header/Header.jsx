@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import MenuButton from './MenuButton/MenuButton';
-import Menu from './Menu/Menu';
+import MenuButton from '../MenuButton/MenuButton';
+import Menu from '../Menu/Menu';
 import s from './Header.module.css';
-import logo from './Logo/logo.svg';
+import logo from '../Logo/logo.svg';
 
 const sortArr = [
   { name: 'Popularity', sortUrl: 'popularity.desc' },

@@ -8,7 +8,7 @@ const Footer = () => {
         This app was designed by{' '}
         <a href="https://github.com/SerogaHumenchuk" className={styles.name}>
           {' '}
-          Serhiy Hymenchuk
+          Serhiy Humenchuk
         </a>{' '}
         for{' '}
         <a href="https://morbax.com/" className={styles.company}>

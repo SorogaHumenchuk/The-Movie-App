@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  getGenres,
-  // getSearchMovie,
-  getMovies,
-} from '../../../../modules/selectors';
+import { getGenres, getMovies } from '../../../../modules/selectors';
 import {
   fetchSuccessGenres,
   fetchSuccessSearchMovie,
   fetchSuccessMovies,
 } from '../../../../modules/operations';
 
-import Header from '../Header';
+import Header from '../Header/Header';
 
 class HeaderContainer extends Component {
   state = {
@@ -25,7 +21,9 @@ class HeaderContainer extends Component {
   }
 
   handleMenuClick = () => {
-    this.setState({ menuOpen: !this.state.menuOpen });
+    this.setState(prevState => ({
+      menuOpen: !prevState.menuOpen,
+    }));
   };
 
   handleLinkClick = () => this.setState({ menuOpen: false });
@@ -64,7 +62,6 @@ class HeaderContainer extends Component {
 
 const mapStateToProps = state => ({
   genres: getGenres(state),
-  // searchMovie: getSearchMovie(state),
   movies: getMovies(state),
 });
 const mapDispatchToProps = {
