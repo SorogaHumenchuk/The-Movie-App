@@ -45,11 +45,11 @@ export const fetchSuccessSearchMovie = search => dispatch => {
     .catch(error => dispatch(actions.fetchSearchMovieError(error)));
 };
 
-export const fetchRecommendationsById = id => dispatch => {
+export const fetchRecommendationsById = (id, offer) => dispatch => {
   dispatch(actions.fetchRecommendationsMovieRequest());
   axios
     .get(
-      `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&page=1`,
+      `https://api.themoviedb.org/3/movie/${id}/${offer}?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&page=1`,
     )
     .then(({ data }) =>
       dispatch(actions.fetchRecommendationsMovieSeccess(data)),

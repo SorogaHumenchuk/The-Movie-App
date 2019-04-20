@@ -115,6 +115,41 @@ h3 {
   width: 100px;
   transition-duration: 0.5s;
 }
+.btn__container {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+  margin: 40px 0 30px 0;
+}
+.btn__container button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  outline: none;
+  padding: 0;
+}
+.btnOption__after::after {
+  content: '';
+  height: 2px;
+  background-color: orangered;
+  display: block;
+  margin: auto;
+  margin-top: 12px;
+  width: 80%;
+}
+.btnOption__afterTransparent::after {
+  content: '';
+  height: 2px;
+  background-color: transparent;
+  display: block;
+  margin: auto;
+  margin-top: 12px;
+  width: 50px;
+}
+
 @media (min-width: 425px) {
   .btnComeBack {
     font-size: 18px;
@@ -135,6 +170,13 @@ h3 {
   }
   .actors__list img {
     height: 180px;
+  }
+  .btn__container {
+    width: 400px;
+    margin: 40px auto 30px auto;
+  }
+  .btn__container button {
+    font-size: 1.5em;
   }
   .video__container {
     width: 100%;
@@ -165,6 +207,9 @@ h3 {
   }
   .actors__list {
     padding: 0;
+  }
+  .btn__container {
+    margin: 40px auto 40px auto;
   }
   .video {
     height: 500px;

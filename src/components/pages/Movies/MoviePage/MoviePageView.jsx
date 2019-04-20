@@ -6,7 +6,14 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import myPhoto from '../img/my.jpg';
 import styles from './MoviePage.module.css';
 
-const MoviePageView = ({ movieById, recommendations, trailers, actors }) => {
+const MoviePageView = ({
+  movieById,
+  recommendations,
+  trailers,
+  actors,
+  choseOption,
+  option,
+}) => {
   const arr =
     trailers &&
     trailers.results.map(el => (
@@ -25,7 +32,6 @@ const MoviePageView = ({ movieById, recommendations, trailers, actors }) => {
   };
   return (
     <>
-      {/* <Loader type="Oval" color="#ff4400" height="100" width="100" /> */}
       {movieById && (
         <div>
           <div
@@ -80,7 +86,32 @@ const MoviePageView = ({ movieById, recommendations, trailers, actors }) => {
             buttonsDisabled
           />
         </div>
-        <h2 className={styles.title_container}>Recommendations</h2>
+        <div className={styles.btn__container}>
+          <button
+            className={
+              option === 'recommendations'
+                ? styles.btnOption__after
+                : styles.btnOption__afterTransparent
+            }
+            type="button"
+            data-partUrl="recommendations"
+            onClick={choseOption}
+          >
+            Recommendations
+          </button>
+          <button
+            className={
+              option === 'similar'
+                ? styles.btnOption__after
+                : styles.btnOption__afterTransparent
+            }
+            type="button"
+            data-partUrl="similar"
+            onClick={choseOption}
+          >
+            Similar
+          </button>
+        </div>
         {recommendations && (
           <div className={styles.video__container}>
             <AliceCarousel

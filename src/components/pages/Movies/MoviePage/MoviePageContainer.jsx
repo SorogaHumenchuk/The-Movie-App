@@ -15,22 +15,37 @@ import MoviePageView from './MoviePageView';
 import styles from './MoviePage.module.css';
 
 class MoviePage extends Component {
-  state = {};
+  state = {
+    option: 'recommendations',
+  };
 
   componentDidMount() {
     this.props.fetchSuccessMovieById(this.props.match.params.id);
-    this.props.fetchRecommendationsById(this.props.match.params.id);
+    this.props.fetchRecommendationsById(
+      this.props.match.params.id,
+      this.state.option,
+    );
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
+    const { option } = this.state;
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.props.fetchSuccessMovieById(this.props.match.params.id);
-      this.props.fetchRecommendationsById(this.props.match.params.id);
+      this.props.fetchRecommendationsById(this.props.match.params.id, option);
+    }
+    if (option !== prevState.option) {
+      this.props.fetchRecommendationsById(this.props.match.params.id, option);
     }
   }
 
+  handleChoseOption = e =>
+    this.setState({
+      option: e.target.attributes.getNamedItem('data-partUrl').value,
+    });
+
   render() {
     const { movieById, recommendations, trailers, actors } = this.props;
+    const { option } = this.state;
     return (
       <div className={styles.main__container}>
         <MoviePageView
@@ -38,6 +53,8 @@ class MoviePage extends Component {
           recommendations={recommendations}
           trailers={trailers}
           actors={actors}
+          choseOption={this.handleChoseOption}
+          option={option}
         />
       </div>
     );
