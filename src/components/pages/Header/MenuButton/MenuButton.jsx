@@ -14,7 +14,9 @@ class MenuButton extends Component {
   }
 
   handleClick() {
-    this.setState({ open: !this.state.open });
+    this.setState(prevstate => ({
+      open: !prevstate.open,
+    }));
   }
 
   render() {

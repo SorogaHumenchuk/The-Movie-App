@@ -14,25 +14,9 @@ class Menu extends Component {
 
   render() {
     const { search, handleSubmit, handleChange, children, open } = this.props;
-    const styles = {
-      container: {
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        height: open ? '100%' : 0,
-        width: '100vw',
-        display: 'flex',
-        flexDirection: 'column',
-        background: 'black',
-        opacity: 0.95,
-        color: '#fafafa',
-        transition: 'height 0.3s ease',
-        zIndex: 2,
-      },
-    };
     return (
       <div>
-        <div style={styles.container}>
+        <div className={open ? s.container__open : s.container__close}>
           {this.state.open ? (
             <div className={s.menu__list}>
               <form onSubmit={handleSubmit} className={s.form__search}>
