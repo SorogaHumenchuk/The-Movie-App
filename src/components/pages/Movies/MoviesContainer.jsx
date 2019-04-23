@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import { fetchSuccessMovies } from '../../../modules/operations';
 import { getMovies, getGenres } from '../../../modules/selectors';
-
 import HeaderContainer from '../Header/HeaderContainer/HeaderContainer';
 import MoviesView from './MoviesView';
 import Pagination from '../Pagination/Pagination';
@@ -20,6 +18,7 @@ class MainContainer extends Component {
         `&with_genres=${this.props.match.params.id}`,
       );
     }
+
     if (this.props.match.params.sort !== prevProps.match.params.sort) {
       this.props.fetchSuccessMovies(this.props.match.params.sort);
     }
@@ -29,7 +28,9 @@ class MainContainer extends Component {
     return (
       <div className={styles.container}>
         <HeaderContainer />
+
         <MoviesView movies={this.props.movies} />
+
         <Pagination
           id={this.props.match.params.id}
           sort={this.props.match.params.sort}
@@ -41,11 +42,14 @@ class MainContainer extends Component {
 
 const mapStateToProps = state => ({
   movies: getMovies(state),
+
   genres: getGenres(state),
 });
+
 const mapDispatchToProps = { fetchSuccessMovies };
 
 export default connect(
   mapStateToProps,
+
   mapDispatchToProps,
 )(MainContainer);

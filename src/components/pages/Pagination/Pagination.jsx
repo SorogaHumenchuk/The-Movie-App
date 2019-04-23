@@ -9,7 +9,7 @@ class Pagination extends Component {
   state = {};
 
   render() {
-    const { id, sort } = this.props;
+    const { id } = this.props;
     return (
       <div>
         <ReactPaginate

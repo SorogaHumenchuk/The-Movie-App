@@ -73,9 +73,6 @@ h3 {
   margin: 0 auto;
 }
 .actors__list li {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100px;
   text-align: center;
   margin-bottom: 20px;
@@ -83,6 +80,12 @@ h3 {
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
+}
+.actor__navlink {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .actors__list img {
   width: 100%;

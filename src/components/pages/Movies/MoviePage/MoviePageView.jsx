@@ -61,16 +61,21 @@ const MoviePageView = ({
           {actors &&
             actors.cast.slice(0, 10).map(el => (
               <li key={el.credit_id}>
-                <h4>{el.name}</h4>
-                <h5>{el.character}</h5>
-                {el.profile_path ? (
-                  <img
-                    src={`https://image.tmdb.org/t/p/w200${el.profile_path}`}
-                    alt=""
-                  />
-                ) : (
-                  <img src={myPhoto} alt="" />
-                )}
+                <NavLink
+                  to={`/actor/${el.credit_id}`}
+                  className={styles.actor__navlink}
+                >
+                  <h4>{el.name}</h4>
+                  <h5>{el.character}</h5>
+                  {el.profile_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200${el.profile_path}`}
+                      alt=""
+                    />
+                  ) : (
+                    <img src={myPhoto} alt="" />
+                  )}
+                </NavLink>
               </li>
             ))}
         </ul>

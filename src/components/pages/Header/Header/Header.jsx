@@ -23,7 +23,7 @@ const Header = ({
 }) => {
   const menuItemsSort = sortArr.map(el => (
     <NavLink
-      key={el.id}
+      key={el.name}
       className={s.link}
       onClick={() => {
         handleMenuClick();

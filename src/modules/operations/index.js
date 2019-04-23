@@ -56,3 +56,13 @@ export const fetchRecommendationsById = (id, offer) => dispatch => {
     )
     .catch(error => dispatch(actions.fetchRecommendationsMovieError(error)));
 };
+
+export const fetchActorInfoById = id => dispatch => {
+  dispatch(actions.fetchActorInfoRequest());
+  axios
+    .get(
+      `https://api.themoviedb.org/3/credit/${id}?api_key=5874acfd11651a28c55771624f7021f4`,
+    )
+    .then(({ data }) => dispatch(actions.fetchActorInfoSeccess(data)))
+    .catch(error => dispatch(actions.fetchActorInfoError(error)));
+};
