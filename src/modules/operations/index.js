@@ -11,7 +11,10 @@ export const fetchSuccessMovies = (
     .get(
       `https://api.themoviedb.org/3/discover/movie?api_key=5874acfd11651a28c55771624f7021f4&language=en-US&sort_by=${sort}&include_adult=false&page=${pageNum}${genre}`,
     )
-    .then(({ data }) => dispatch(actions.fetchPopularSeccess(data)))
+    .then(data => {
+      dispatch(actions.fetchPopularSeccess(data.data));
+      console.log(data.request.responseURL);
+    })
     .catch(error => dispatch(actions.fetchPopularError(error)));
 };
 

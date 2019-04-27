@@ -13,6 +13,14 @@ class MainContainer extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (
+      this.props.match.params.id !== prevProps.match.params.id &&
+      this.props.match.params.id
+    ) {
+      this.props.fetchSuccessMovies(
+        `&with_genres=${this.props.match.params.id}`,
+      );
+    }
     if (this.props.match.params.id !== prevProps.match.params.id) {
       this.props.fetchSuccessMovies(
         `&with_genres=${this.props.match.params.id}`,
@@ -21,10 +29,6 @@ class MainContainer extends Component {
 
     if (this.props.match.params.sort !== prevProps.match.params.sort) {
       this.props.fetchSuccessMovies(this.props.match.params.sort);
-    }
-
-    if (!this.props.match.params) {
-      this.props.fetchSuccessMovies(`popularity.desc`);
     }
   }
 
