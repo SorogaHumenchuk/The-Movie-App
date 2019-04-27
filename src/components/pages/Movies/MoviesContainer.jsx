@@ -22,6 +22,10 @@ class MainContainer extends Component {
     if (this.props.match.params.sort !== prevProps.match.params.sort) {
       this.props.fetchSuccessMovies(this.props.match.params.sort);
     }
+
+    if (!this.props.match.params) {
+      this.props.fetchSuccessMovies(`popularity.desc`);
+    }
   }
 
   render() {
